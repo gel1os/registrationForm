@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="breadcrumb-wrapper">
+        <div class="breadcrumb first"
+             ng-class="currentPath === '/' ? 'active' : 'passed'">
+            <a ng-href="#/">Authorization</a>
+        </div>
+        <div class="breadcrumb second"
+             ng-class="{ 'active' : currentPath === '/personal-data',
+                         'passed' : currentPath === '/confirmation' }">
+            <a ng-if="enablePersData" class="available" ng-href="#/personal-data">Personal data</a>
+            <span ng-if="!enablePersData">Personal data</span>
+        </div>
+        <div class="breadcrumb last"
+             ng-class="{ 'passed' : currentPath === '/confirmation' }">
+            <a ng-if="enableConfirmation" ng-href="#/confirmation" class="available">Confirmation</a>
+            <span ng-if="!enableConfirmation">Confirmation</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="container">
+    <h2>Personal data:</h2>
+
+    <form role="form" name="personalData" ng-submit="goToConfirmationStep()" class="col-lg-8 col-md-8 col-sm-8">
+        <div class="form-group"
+             ng-class="{ 'has-error': personalData.name.$touched && personalData.name.$invalid,
+                         'has-success': personalData.name.$valid }">
+            <label for="name">Name:</label>
+            <input name="name" type="name" class="form-control"
+                   id="name"
+                   placeholder="Enter name"
+                   ng-model="name"
+                   required>
+
+            <div class="errors"
+                 ng-messages="personalData.name.$error"
+                 ng-if="personalData.name.$touched && personalData.name.$invalid">
+                <p ng-message="required"
+                   class="error-message alert alert-danger">Y U no enter your name??</p>
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-class="{ 'has-error': personalData.birthdate.$touched && personalData.birthdate.$invalid && !isDatepickerOpened,
+                         'has-success': personalData.birthdate.$valid }">
+            <label for="birthdate">Day of birth:</label>
+
+            <p class="input-group">
+                <input type="text"
+                       name="birthdate"
+                       id="birthdate"
+                       class="form-control"
+                       uib-datepicker-popup="{{format}}"
+                       ng-model="dt"
+                       is-open="isDatepickerOpened"
+                       min-date="minDate"
+                       max-date="maxDate"
+                       init-date="maxDate"
+                       ng-required="true"
+                       ng-focus="openDatepicker()"
+                       placeholder="dd.MM.yyyy"
+                       required
+                       is-wrong-date-value
+                       close-text="Close"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"
+                                ng-class="{ 'btn-danger': personalData.birthdate.$touched && personalData.birthdate.$invalid && !isDatepickerOpened,
+                                            'btn-success': personalData.birthdate.$valid }"
+                                ng-click="openDatepicker()">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </button>
+                    </span>
+            <div class="errors"
+                 ng-messages="personalData.birthdate.$error"
+                 ng-if="personalData.birthdate.$touched && personalData.birthdate.$invalid && !isDatepickerOpened">
+                <p ng-message="required"
+                   class="error-message alert alert-danger">Y U no enter your date of birth??
+                </p>
+
+                <p ng-message="isWrongDateValue"
+                   class="error-message alert alert-danger">Please provide correct date value
+                </p>
+            </div>
+            </p>
+        </div>
+
+        <div class="form-group"
+             ng-class="{ 'has-error': personalData.about.$invalid, 'has-success': personalData.about.$valid }">
+            <label for="name">Additional info:</label>
+                <textarea name="about" class="form-control"
+                          id="about"
+                          placeholder="Additional info"
+                          ng-maxlength="aboutMaxLength"
+                          ng-model="about"></textarea>
+
+            <div class="about-counter">
+                {{ aboutMaxLength - personalData.about.$viewValue.length }} symbols left
+            </div>
+            <div class="errors"
+                 ng-messages="personalData.about.$error"
+                 ng-if="personalData.about.$invalid">
+                <p ng-message="maxlength"
+                   class="error-message alert alert-danger">Daamn, that's a lot of info about yourself!</p>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit"
+                    ng-disabled="personalData.$invalid"
+                    class="btn btn-primary">Continue
+            </button>
+        </div>
+
+    </form>
+</div>

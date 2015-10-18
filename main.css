@@ -1,0 +1,164 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 20px;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+form {
+    padding: 0 !important;
+}
+
+.error-message {
+    margin: 10px 0;
+}
+
+.has-error label,
+.has-error .about-counter {
+    color: #a94442;
+}
+
+.has-success label {
+    color: #3c763d;
+}
+
+.about-counter {
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+
+.container li {
+    list-style: none;
+}
+
+ul {
+    padding-left: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.breadcrumb-wrapper {
+    height: 40px;
+    border: 1px solid #C3C3C3;
+    border-radius: 5px;
+    display: table;
+    width: 100%;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.breadcrumb {
+    vertical-align: middle;
+    display: table-cell;
+    width: auto;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    position: relative;
+    height: 40px;
+}
+
+.breadcrumb.active,
+.breadcrumb.passed {
+    background: #449d44;
+    color: #ffffff;
+}
+
+.breadcrumb.active:not(.last),
+.breadcrumb.passed:not(.last) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.breadcrumb a.available {
+    color: #449d44;
+    cursor: pointer;
+}
+
+.breadcrumb.second {
+    border-radius: 0;
+}
+
+.breadcrumb.last.passed {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.breadcrumb.active:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+    right: -9px;
+    border-width: 20px 0 20px 10px;
+    z-index: 1;
+    border-color: transparent transparent transparent #449d44;
+}
+
+.breadcrumb a {
+    color: #2F2F2F;
+    text-decoration: none;
+}
+
+.text-muted a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.breadcrumb.passed a,
+.breadcrumb.active a {
+    color: #ffffff;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 372px) {
+    .breadcrumb.active:after {
+        border-width: 27px 0 26px 9px;
+        right: -8px;
+    }
+}

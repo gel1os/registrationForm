@@ -1,0 +1,39 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body ng-app="registrationFormApp">
+
+<div class="container">
+    <div class="header">
+        <h3 class="text-muted">
+            <a href="#/">registrationForm</a>
+        </h3>
+    </div>
+    <checkout-panel></checkout-panel>
+    <div ng-view=""></div>
+
+    <div class="footer">
+    </div>
+</div>
+
+<script src="https://code.angularjs.org/1.4.6/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.4.6/angular-route.min.js"></script>
+<script src="https://code.angularjs.org/1.4.6/angular-messages.min.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.2.js"></script>
+
+<script src="app.js"></script>
+<script src="components/$localstorage.js"></script>
+<script src="checkoutPanel/checkoutPanel.js"></script>
+<script src="authorization/authorization.js"></script>
+<script src="personalData/personalData.js"></script>
+<script src="confirmation/confirmation.js"></script>
+
+</body>
+</html>

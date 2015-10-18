@@ -1,0 +1,82 @@
+<div class="container">
+    <h2>Authorization:</h2>
+
+    <form role="form" name="authorization" ng-submit="goToPersonalDataStep()" class="col-lg-8 col-md-8 col-sm-8">
+        <div class="form-group"
+             ng-class="{ 'has-error': authorization.email.$touched && authorization.email.$invalid,
+                         'has-success': authorization.email.$valid }">
+            <label for="email">Email:</label>
+            <input name="email" type="email" class="form-control"
+                   id="email"
+                   placeholder="Enter email"
+                   ng-model="email"
+                   ng-pattern="/.+@.+\..+/"
+                   required>
+
+            <div class="errors"
+                 ng-messages="authorization.email.$error"
+                 ng-if="authorization.email.$touched && authorization.email.$invalid">
+                <p ng-message="required"
+                   class="error-message alert alert-danger">Y U no enter email??</p>
+
+                <p ng-message="pattern" class="error-message alert alert-danger">Wrong email format. Should be
+                    name@example.domain</p>
+            </div>
+        </div>
+        <div class="form-group"
+             ng-class="{ 'has-error': authorization.password.$touched && authorization.password.$invalid,
+                         'has-success': authorization.password.$valid }">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control"
+                   id="password"
+                   name="password"
+                   placeholder="Enter password"
+                   ng-model="password"
+                   ng-minlength="6"
+                   ng-pattern="/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/"
+                   required/>
+
+            <div class="errors"
+                 ng-messages="authorization.password.$error"
+                 ng-if="authorization.password.$touched">
+                <p ng-message="required" class="error-message alert alert-danger">Y U no enter password??</p>
+
+                <p ng-message="minlength" class="error-message alert alert-danger">Password is too short</p>
+
+                <p ng-message="pattern" class="error-message alert alert-danger">Password should contain at least 1
+                    number and 1 letter</p>
+            </div>
+        </div>
+        <div class="form-group"
+             ng-class="{ 'has-error': authorization.passwordConfirm.$touched && authorization.passwordConfirm.$invalid,
+                         'has-success': authorization.passwordConfirm.$valid }">
+            <label for="passwordConfirm">Password confirmation:</label>
+            <input type="password" class="form-control" id="passwordConfirm"
+                   placeholder="Please confirm your password"
+                   name="passwordConfirm"
+                   ng-model="passwordConfirm"
+                   ng-minlength="6"
+                   ng-pattern="/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/"
+                   required
+                   valid-password-confirm>
+
+            <div class="errors"
+                 ng-messages="authorization.passwordConfirm.$error"
+                 ng-if="authorization.passwordConfirm.$touched">
+                <p ng-message="required" class="error-message alert alert-danger">
+                    Y U no enter password confirmation??
+                </p>
+
+                <p ng-message="validPasswordConfirm" class="error-message alert alert-danger">
+                    Oops, looks like passwords are not the same.
+                </p>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit"
+                    ng-disabled="authorization.$invalid"
+                    class="btn btn-primary">Continue
+            </button>
+        </div>
+    </form>
+</div>
