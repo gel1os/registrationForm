@@ -156,7 +156,7 @@ ul {
     }
 }
 
-@media screen and (max-width: 372px) {
+@media screen and (max-width: 401px) {
     .breadcrumb.active:after {
         border-width: 27px 0 26px 9px;
         right: -8px;
